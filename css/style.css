@@ -437,7 +437,7 @@ button {
 /* Hide Bootstrap nav links on mobile (since we're using custom menu) */
 @media (max-width: 991.98px) {
     .navbar-collapse {
-        display: none !important;
+        /*display: none !important;*/
     }
 }
 
