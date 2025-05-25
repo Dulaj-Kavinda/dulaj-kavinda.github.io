@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- basic -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- mobile metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <!-- site metas -->
+  <title>Dulaj Dasanayake</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- bootstrap css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <!-- style css -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- Responsive-->
+  <link rel="stylesheet" href="css/responsive.css">
+  <!-- fevicon -->
+  <link rel="icon" href="images/fevicon.png" type="image/gif" />
+  <!-- Scrollbar Custom CSS -->
+  <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+  <!-- Tweaks for older IEs-->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- font awesome css -->
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<!-- Header Start -->
+<div class="header_section header_bg">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="logo"><a href="index.html">Dulaj <span>Dasanayake</span></a></div>
+      <button class="navbar-toggler" type="button" onclick="toggleSidebar()">
+        <i class="fa fa-bars" style="font-size: 24px; color: #333;"></i>
+      </button>
+      <div class="navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="education.html">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
+          <li class="nav-item"><a class="nav-link active" href="research.html">Research</a></li>
+          <li class="nav-item"><a class="nav-link" href="awards.html">Awards</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+<!-- Header End -->
+
+<!-- Career Section Start -->
+<div class="career_section layout_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1 class="portfolio_title">My <span class="portfolio_title_1">Research Projects</span></h1>
+        <p class="portfolio-intro mb-5">
+          I have actively pursued research in applied machine learning and healthcare informatics, driven by the goal of building intelligent, interpretable systems. Here are some of the notable research contributions I have made.
+        </p>
+      </div>
+  </div>
+
+  </div>
+  <div class="container">
+    <div class="career_section_2">
+      <!-- Final Year Research Project Card -->
+      <div class="research-card mb-5">
+        <h2 class="research-title">Generative Adversarial Network (GAN)-Based Forecasting of Market Movements and Prediction of Bottom Turning Points</h2>
+        <p class="research-role">Final Year Research & Development Project</p>
+        <hr class="research-divider">
+        <p class="research-description">
+          Proposed a novel approach for forecasting market turning points using deep learning. The solution combines a WGAN-GP model with Gated Recurrent Units (GRUs) for time series representation learning, and an XGBoost classifier for bottom point identification using latent features. The model was tested across cryptocurrency and stock markets, outperforming standard LSTM/GRU/GAN baselines.
+        </p>
+
+        <ul class="research-list">
+          <li>Designed WGAN-GP with GRU layers for sequential price prediction.</li>
+          <li>Extracted hidden features for bottom point classification via XGBoost.</li>
+          <li>Conducted extensive feature engineering using Fourier analysis, PCA, and VAE.</li>
+          <li>Built a web interface using Next.js for real-time visualization of predictions.</li>
+        </ul>
+
+        <!-- Diagram -->
+        <div class="mb-3">
+          <img src="images/research/fyp-architecture.png" alt="Forecasting System Architecture" class="img-fluid" style="border: 1px solid #ddd; border-radius: 6px; max-width: 100%;">
+          <small class="research-caption d-block mt-2">Architecture of the GAN-GRU-based forecasting framework</small>
+        </div>
+
+        <!-- Project Demo -->
+        <a href="https://youtu.be/sZjwhfJUSSc" target="_blank" class="edu-badge ml-2">Watch Project Video</a>
+
+        <!-- Publication Section -->
+        <div class="research-publication mt-3">
+          <h3 class="research-subtitle">📄 Publication</h3>
+          <p class="research-description">
+            <strong>D.M.D.K. Dasanayake</strong>, H.Y. Dilshan, H.D.K.Y. Rathnaweera, Sapumal Ahangama, Indika Perera.<br>
+            <em>“A Novel Approach for Deep Learning-Powered Forecasting of Market Bottoms in Cryptocurrency and Stock Trading”</em>,<br>
+            <span>Proceedings of the 2023 IEEE International Conference on Big Data, Sorento, Italy.</span>
+          </p>
+          <a href="https://ieeexplore.ieee.org/abstract/document/10386273" target="_blank" class="edu-badge">View IEEE Publication</a><br><br>
+          <div class="mb-3">
+            <div class="img-center">
+              <img src="images/research/bigdata-presentation.jpg" alt="IEEE BigData 23 Presentation" class="img-fluid">
+            </div>
+            <small class="research-caption d-block mt-2">Virtually presented the paper at IEEE BigData 2023</small>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- HL7v2 Mapping Accelerator Research Card -->
+      <div class="research-card mb-5">
+        <h2 class="research-title">HL7v2 Mapping Accelerator for Open Healthcare Integration</h2>
+        <p class="research-role">Independent Research Project at WSO2</p>
+        <hr class="research-divider">
+        <p class="research-description">
+          Designed and implemented a lightweight mapping engine for the HL7v2 messaging standard, supporting healthcare data transformation into JSON and XML formats. The accelerator leverages YAML templates and integrates with WSO2 EI to enable real-time interoperability across clinical systems.
+        </p>
+
+        <ul class="research-list">
+          <li>Developed segment-to-JSON mapping logic using Java and event-driven architecture principles.</li>
+          <li>Contributed to WSO2’s open-source healthcare integration framework.</li>
+          <li>Explored use cases in electronic medical records (EMRs) and lab systems for real-world validation.</li>
+          <li>Published a foundational technical blog to demystify HL7v2 and its role in modern healthcare APIs.</li>
+        </ul>
+
+        <!-- Diagram -->
+        <div class="research-image mb-3">
+          <img src="images/research/hl7-architecture.png" alt="HL7v2 Architecture" class="research-img img-fluid">
+          <small class="research-caption">System architecture of the HL7v2 transformation pipeline</small>
+        </div>
+
+        <!-- Blog Article -->
+        <a href="https://medium.com/@DulajDasanayake/what-exactly-is-hl7-v2-147c121d0c52" target="_blank" class="edu-badge">Read Blog Article</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Career Section End -->
+
+<!-- footer start -->
+<footer class="site_footer_dark layout_padding">
+  <div class="container text-center">
+
+    <!-- Contact Info -->
+    <div class="footer_item mb-4">
+      <i class="fa fa-envelope fa-2x mb-2"></i>
+      <h4 class="footer_label">Email</h4>
+      <p class="footer_text">dulaj[DOT]kavinda[DOT]dasanayake[AT]gmail[DOT]com</p>
+    </div>
+    <div class="footer_item mb-4">
+      <i class="fa fa-map-marker fa-2x mb-2"></i>
+      <h4 class="footer_label">Address</h4>
+      <p class="footer_text">Gampaha, Sri Lanka</p>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="social_icons mb-4">
+      <a href="https://www.linkedin.com/in/dulaj-kavinda-dasanayake/" target="_blank" class="social_circle"><i class="fa fa-linkedin"></i></a>
+      <a href="https://github.com/Dulaj-Kavinda" target="_blank" class="social_circle"><i class="fa fa-github"></i></a>
+      <a href="https://scholar.google.com/citations?hl=en&user=IfszygYAAAAJ" target="_blank" class="social_circle">
+        <img src="images/icons/google-scholar.svg" alt="Google Scholar" style="width: 22px; height: 22px; vertical-align: middle;">
+      </a>
+      <a href="https://medium.com/@DulajDasanayake" target="_blank" class="social_circle">
+        <img src="images/icons/medium.svg" alt="Medium" style="width: 22px; height: 22px; vertical-align: middle;">
+      </a>
+      <a href="https://www.researchgate.net/profile/Dulaj-Dasanayake" target="_blank" class="social_circle">
+        <img src="images/icons/researchgate.svg" alt="ResearchGate" style="width: 22px; height: 22px; vertical-align: middle;">
+      </a>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer_item">
+      <p class="copyright_text mb-1">© 2025 Dulaj Dasanayake. All Rights Reserved.</p>
+      <p class="footer_credits">Design Inspired by ThemeWagon</p>
+    </div>
+
+  </div>
+</footer>
+<!-- footer end -->
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/custom.js"></script>
+<script>
+  function toggleSidebar() {
+    document.getElementById("offcanvas-menu").classList.toggle("open");
+  }
+</script>
+</body>
+</html>
