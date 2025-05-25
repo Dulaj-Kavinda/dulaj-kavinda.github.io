@@ -241,6 +241,7 @@ button {
 
 .header_section_home {
     aspect-ratio: 16 / 9;
+    padding-bottom: 550px;
 }
 
 .header_bg {
