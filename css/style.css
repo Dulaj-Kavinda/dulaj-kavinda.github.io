@@ -248,6 +248,21 @@ button {
     background: #252e2c;
 }
 
+@media (max-width: 768px) {
+    .header_section {
+        background-image: url('../images/banner-bg.png');
+        background-position: right center !important; /* Focus on right */
+        background-size: cover !important; /* Fill container, crop excess */
+        background-repeat: no-repeat !important;
+    }
+
+    .header_section_home {
+        aspect-ratio: auto !important;
+        padding-bottom: 550px !important; /* Keep height as per desktop */
+    }
+}
+
+
 .bg-light {
     background-color: transparent !important;
 }
