@@ -660,7 +660,82 @@ button {
     transform: translateX(5px);
 }
 
+/* Header section - desktop */
+.header_section {
+    width: 100%;
+    float: left;
+    background-image: url(../images/banner-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+}
 
+.header_section_home {
+    aspect-ratio: 16 / 9;
+    padding-bottom: 550px;
+}
+
+/* Mobile responsive background fix */
+@media (max-width: 768px) {
+    .header_section {
+        background-image: url('../images/banner-bg.png');
+        background-position: right center !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        min-height: 100vh; /* Ensure minimum height */
+    }
+
+    .header_section_home {
+        aspect-ratio: unset !important; /* Remove aspect ratio constraint */
+        min-height: 100vh !important; /* Use viewport height instead */
+        padding-bottom: 400px !important; /* Reduce padding for mobile */
+    }
+}
+
+/* Extra small screens (phones in portrait) */
+@media (max-width: 480px) {
+    .header_section {
+        background-position: 75% center !important; /* Focus more on right side */
+        min-height: 100vh;
+    }
+    
+    .header_section_home {
+        min-height: 100vh !important;
+        padding-bottom: 300px !important;
+    }
+}
+
+/* Large phones and small tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    .header_section {
+        background-position: 60% center !important; /* Balanced right focus */
+    }
+}
+
+/* Ensure banner content is properly positioned on mobile */
+@media (max-width: 768px) {
+    .banner_title_main {
+        padding-left: 20px !important; /* Reduce left padding */
+        padding-top: 80px !important; /* Adjust top padding */
+        padding-right: 20px; /* Add right padding */
+    }
+    
+    .banner_title {
+        width: 100% !important; /* Full width on mobile */
+        font-size: 24px !important; /* Smaller font size */
+        line-height: 32px !important;
+    }
+    
+    .banner_text {
+        font-size: 18px !important;
+    }
+    
+    .social_icon {
+        text-align: center !important; /* Center social icons */
+        margin-top: 30px;
+    }
+}
 /*------------------------------ vertical bootstrap slider----------------------------*/
 
 .banner_section .carousel-inner>.carousel-item.carousel-item-next,
