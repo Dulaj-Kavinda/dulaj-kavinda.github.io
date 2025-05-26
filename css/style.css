@@ -512,10 +512,9 @@ button {
 }
 
 @media (max-width: 768px) {
-    .banner_title {
-        width: 100%;
+    .banner_title_main {
+        width: 60%;
         font-size: 5vw;
-        /*line-height: 1.3;*/
         word-wrap: break-word;
     }
 }
