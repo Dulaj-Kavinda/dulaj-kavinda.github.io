@@ -272,38 +272,11 @@ button {
         width: 100%;
         background-image: url('../images/banner-bg-mobile.png');
         background-size: contain; /* Show full image */
-        background-position: right center;
+        background-position: right bottom;
         background-repeat: no-repeat;
         z-index: 1;
     }
 }
-
-/*.header-bg-image {*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    height: 100%;*/
-/*    width: 100%;*/
-/*    background-image: url('../images/banner-bg-mobile.png');*/
-/*    background-size: contain; !* Show full image *!*/
-/*    background-position: center;*/
-/*    background-repeat: no-repeat;*/
-/*    z-index: 1;*/
-/*}*/
-
-/*@media (max-width: 768px) {*/
-/*    .header_section {*/
-/*        background-image: url('../images/banner-bg.png');*/
-/*        background-position: right center !important; !* Focus on right *!*/
-/*        background-size: cover !important; !* Fill container, crop excess *!*/
-/*        background-repeat: no-repeat !important;*/
-/*    }*/
-
-/*    .header_section_home {*/
-/*        aspect-ratio: auto !important;*/
-/*        padding-bottom: 550px !important; !* Keep height as per desktop *!*/
-/*    }*/
-/*}*/
 
 
 .bg-light {
