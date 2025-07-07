@@ -1559,7 +1559,7 @@ button {
 .blog_img_2 {
     position: relative;
     height: 26rem;
-    background-image: url(../images/blog_RL_1.png);
+    background-image: url(../images/blog_RL.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -1577,6 +1577,13 @@ button {
     display: block;
     width: 100%;
 }
+
+.blog_img_1,
+.blog_img_2,
+.blog_img_3 {
+    height: 19rem;
+}
+
 
 .date_text {
     width: 160px;
