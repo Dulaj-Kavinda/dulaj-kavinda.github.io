@@ -1462,6 +1462,7 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    word-wrap: break-word;
 }
 
 .readmore_bt_1 a {
@@ -1543,29 +1544,38 @@ button {
     border-bottom-left-radius: 5px;
 }
 
-.blog_img_1 {
-    width: 100%;
-    background-image: url(../images/blog_hl7.png);
-    height: auto;
-    background-size: 100%;
-    background-repeat: no-repeat;
 
+.blog_img_1 {
+    position: relative;
+    height: 26rem;
+    background-image: url(../images/blog_hl7.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    width: 100%;
 }
 
 .blog_img_2 {
-    width: 100%;
-    background-image: url(../images/blog-img2.png);
-    height: auto;
-    background-size: 100%;
+    position: relative;
+    height: 26rem;
+    background-image: url(../images/blog_RL_1.png);
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    width: 100%;
 }
 
 .blog_img_3 {
-    width: 100%;
-    background-image: url(../images/blog-img3.png);
-    height: auto;
-    background-size: 100%;
+    position: relative;
+    height: 26rem;
+    background-image: url(../images/blog-img2.png);
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    width: 100%;
 }
 
 .date_text {
@@ -1580,12 +1590,25 @@ button {
 }
 
 .prep_text {
-    width: 100%;
-    font-size: 20px;
-    color: #fefefd;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    font-size: 18px;
     font-weight: bold;
-    padding: 250px 20px 20px 20px;
+    color: #ffffff;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    margin: 0;
+    line-height: 1.4;
+    text-align: left;
+
+    display: inline-block;
+    width: 100%;
+    white-space: normal;
+    word-wrap: break-word;
 }
+
 
 .lorem_text {
     width: 100%;
