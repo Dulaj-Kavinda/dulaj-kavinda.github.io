@@ -1263,6 +1263,30 @@ button {
     margin-bottom: 30px;
     font-family: 'Poppins', sans-serif;
     text-align: left;
+    position: relative; /* Add this for absolute positioning of logos */
+}
+
+/* Position logos in top-right corner */
+.awards-logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 2;
+}
+
+.awards-logo img {
+    max-width: 60px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Ensure content has proper spacing and doesn't overlap with logos */
+.awards-content {
+    padding-right: 80px; /* Add right padding to avoid logo overlap */
+    width: 100%;
 }
 
 .awards-title {
@@ -1311,7 +1335,6 @@ button {
     text-align: left;
 }
 
-
 .awards-badge {
     display: inline-block;
     padding: 6px 14px;
@@ -1326,7 +1349,6 @@ button {
 .awards-badge:hover {
     background-color: #3399ff;
 }
-
 
 .awards-title,
 .awards-role,
@@ -1412,27 +1434,22 @@ button {
     color: #000;
 }
 
+/* Mobile responsiveness */
 @media (max-width: 768px) {
-    .awards-card.d-flex {
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-    }
-
     .awards-content {
-        width: 100%;
-        text-align: center !important;
+        padding-right: 20px; /* Reduce right padding on mobile */
     }
 
     .awards-logo {
-        margin-top: 1rem !important;
-        margin-left: 0 !important;
-        text-align: center;
+        position: static; /* Reset to normal flow on mobile */
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 10px;
     }
 
     .awards-logo img {
-        max-width: 70% !important;
-        height: auto;
+        max-width: 50px;
     }
 
     .awards-img-center {
