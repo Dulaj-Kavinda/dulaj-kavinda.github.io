@@ -115,14 +115,29 @@ def timeline_card(e):
         f'<p class="edu-duration"><strong>{d}</strong></p>\n<p class="edu-description">{t}</p>'
         for d, t in e["entries"])
     tech = f'\n<div class="tech-stack"><strong>Tech Stack:</strong> {e["tech"]}</div>' if e.get("tech") else ""
-    url, label = e["badge"]
+    actions = [link(*e["badge"])] if e.get("badge") else []
+    actions += [link(u, l) for u, l in e.get("links", [])]
+    logo = f'<img src="images/{e["logo"]}" alt="{e["alt"]}" class="edu-logo">\n   ' if e.get("logo") else ""
     return f"""<div class="edu-card">
-   <img src="images/{e["logo"]}" alt="{e["alt"]}" class="edu-logo">
-   <div class="edu-content">
+   {logo}<div class="edu-content">
       <h4 class="edu-title">{e["heading"]}</h4>{indent(sub, 6) if sub else ""}
       <hr class="edu-divider">
 {indent(entries, 6)}{indent(tech, 6) if tech else ""}
-      {link(url, label)}
+      {join(actions, " ")}
+   </div>
+</div>"""
+
+
+def info_card(title, rows):
+    """Card with a heading and a list of (label, text) rows; text may be a (text, url) link."""
+    items = join(f"<li>{row}</li>" for row in rows)
+    return f"""<div class="edu-card">
+   <div class="edu-content">
+      <h4 class="edu-title">{title}</h4>
+      <hr class="edu-divider">
+      <ul class="panel__list">
+{indent(items, 9)}
+      </ul>
    </div>
 </div>"""
 
@@ -169,8 +184,10 @@ def research_card(r):
 
 
 def award_card(a):
-    logos = join(f'<img src="images/{src}" alt="{alt}">' for src, alt in a["logos"])
-    text = (f"<b>{a['highlight']}</b><br>\n" if a.get("highlight") else "") + a["description"]
+    logos = join(f'<img src="images/{src}" alt="{alt}">' for src, alt in a.get("logos", []))
+    logos_markup = f'<div class="panel__logos">\n{indent(logos, 3)}\n</div>\n   ' if logos else ""
+    text = (f"<b>{a['highlight']}</b>" if a.get("highlight") else "") \
+        + ("<br>\n" if a.get("highlight") and a.get("description") else "") + a.get("description", "")
     images = ""
     if a.get("images"):
         imgs = join(f'<img src="images/{s}" alt="{al}" class="img-fluid">' for s, al in a["images"])
@@ -178,12 +195,9 @@ def award_card(a):
         images = f'<div class="panel__images{pair}">\n{indent(imgs, 3)}\n</div>'
     note = f'<p class="panel__note">{a["note"]}</p>' if a.get("note") else ""
     return f"""<div class="panel panel--award">
-   <div class="panel__logos">
-{indent(logos, 6)}
-   </div>
-   <div class="panel__body">
+   {logos_markup}<div class="panel__body">
       <h2 class="panel__title">{a["title"]}</h2>
-      <p class="panel__date"><strong>{a["date"]}</strong></p>
+      {f'<p class="panel__date"><strong>{a["date"]}</strong></p>' if a.get("date") else ""}
       <p class="panel__text">{text}</p>
 {indent(join([images, note]), 6)}
    </div>
@@ -315,16 +329,23 @@ def home_body():
 
 PAGES = {
     "index.html": lambda: document(SITE["name"], "home", home_body(), hero=home_hero(), home=True),
+    "projects.html": lambda: document(SITE["name"], "projects", page_section(
+        "My", "Selected Projects",
+        "Hands-on projects spanning machine learning, data mining, mobile development and IoT.",
+        [timeline_card(p) for p in c.PROJECTS])),
     "education.html": lambda: document(SITE["name"], "education", page_section(
         "My", "Education",
         "My path in technology began with a strong interest in understanding how systems work. Over time, this curiosity "
         "evolved into a solid grounding in computer science, shaped by both structured learning and self-driven exploration.",
-        [timeline_card(e) for e in c.EDUCATION])),
+        [timeline_card(e) for e in c.EDUCATION]
+        + [info_card("Certifications", [f'<a href="{u}" target="_blank"><u>{t}</u></a>' for t, u in c.CERTIFICATIONS]),
+           info_card("Volunteer Experience", [f"<strong>{d}</strong> – {t}" for d, t in c.VOLUNTEERING])])),
     "career.html": lambda: document(SITE["name"], "career", page_section(
         "My", "Professional Career",
         "Through hands-on roles in software engineering, I’ve focused on building reliable, scalable solutions that solve "
         "real-world problems. Every step has been about growing technically while contributing meaningfully to the teams I’ve been part of.",
-        [timeline_card(e) for e in c.CAREER])),
+        [timeline_card(e) for e in c.CAREER]
+        + [info_card("Technical Skills", [f"<strong>{k}:</strong> {v}" for k, v in c.SKILLS])])),
     "research.html": lambda: document(SITE["name"], "research", page_section(
         "My", "Research Projects",
         "I have actively pursued research in applied machine learning and healthcare informatics, driven by the goal of building "
