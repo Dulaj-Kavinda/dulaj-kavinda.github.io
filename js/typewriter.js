@@ -1,30 +1,29 @@
-const roles = [
-    "Computer Science & Engineering Graduate",
-    "Software Engineer"
-];
-
-let part = 0;
-let partIndex = 0;
-let isDeleting = false;
+// Typewriter effect for the hero tagline; roles come from the element's data-roles attribute.
 const element = document.getElementById("typewriter-text");
+const roles = JSON.parse(element.dataset.roles);
 
-function typeEffect() {
-    const currentText = roles[part];
-    const displayedText = isDeleting
-        ? currentText.substring(0, partIndex--)
-        : currentText.substring(0, partIndex++);
+const TYPE_DELAY = 100;
+const DELETE_DELAY = 50;
+const PAUSE_BEFORE_DELETE = 1000;
 
-    element.textContent = displayedText;
+let role = 0;
+let length = 0;
+let deleting = false;
 
-    if (!isDeleting && partIndex === currentText.length) {
-        setTimeout(() => isDeleting = true, 1000);
-    } else if (isDeleting && partIndex === 0) {
-        isDeleting = false;
-        part = (part + 1) % roles.length;
+function tick() {
+    const text = roles[role];
+    length += deleting ? -1 : 1;
+    element.textContent = text.slice(0, length);
+
+    if (!deleting && length === text.length) {
+        deleting = true;
+        return setTimeout(tick, PAUSE_BEFORE_DELETE);
     }
-
-    const delay = isDeleting ? 50 : 100;
-    setTimeout(typeEffect, delay);
+    if (deleting && length === 0) {
+        deleting = false;
+        role = (role + 1) % roles.length;
+    }
+    setTimeout(tick, deleting ? DELETE_DELAY : TYPE_DELAY);
 }
 
-document.addEventListener("DOMContentLoaded", typeEffect);
+tick();
